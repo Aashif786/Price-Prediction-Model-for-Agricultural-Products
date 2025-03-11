@@ -1,11 +1,10 @@
 import os
 import pandas as pd
 
-# Directory Paths
-input_dir = r"D:\A\3rdyrminiproject\datasets\rawdata"
-output_dir = r"D:\A\3rdyrminiproject\datasets\filtered"
+input_dir = r"D:\A\miniproject3\datasets\rawdata"
+output_dir = r"D:\A\miniproject3\datasets\filtered"
 
-# List of Cities to Keep
+# List of Cities
 valid_cities = {
     "BENGALURU", "DHARWAD", "MANGALORE", "MYSORE",
     "T.PURAM", "ERNAKULAM", "KOZHIKODE", "THRISSUR",
@@ -14,27 +13,26 @@ valid_cities = {
     "TIRUNELVELI", "THIRUCHIRAPALLI"
 }
 
-# Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
-# Process each Excel file
+# Process each CSV file
 for file in os.listdir(input_dir):
-    if file.endswith(".xlsx") or file.endswith(".xls"):  # Process only Excel files
+    if file.endswith(".csv"): 
         file_path = os.path.join(input_dir, file)
-        df = pd.read_excel(file_path, engine="openpyxl")  # Read file
+        df = pd.read_csv(file_path, encoding="utf-8")  
 
         # Ensure required columns exist
         if not {"Date", "Centre_Name", "Commodity_Name", "Price"}.issubset(df.columns):
             print(f"Skipping {file} (missing required columns)")
             continue
 
-        # Filter by valid Centre_Name and drop null values
-        df_filtered = df[df["Centre_Name"].str.upper().isin(valid_cities)].dropna()
+        df["Centre_Name"] = df["Centre_Name"].str.upper()
 
-        # Save only if data remains after filtering
+        df_filtered = df[df["Centre_Name"].isin(valid_cities)].dropna()
+
         if not df_filtered.empty:
             output_path = os.path.join(output_dir, file)
-            df_filtered.to_excel(output_path, index=False, engine="openpyxl")
+            df_filtered.to_csv(output_path, index=False, encoding="utf-8")
             print(f"Processed: {file}")
 
-print("Preprocessing Complete! Filtered files are saved in:", output_dir)
+print("Preprocessing Complete! Filtered CSV files are saved in:", output_dir)
