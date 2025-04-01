@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-input_dir = r"D:\A\miniproject3\datasets\rawdata"
-output_dir = r"D:\A\miniproject3\datasets\filtered"
+input_dir  = r".\datasets\rawdata"
+output_dir = r".\datasets\filtered"
 
 # List of Cities
 valid_cities = {
