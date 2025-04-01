@@ -1,10 +1,11 @@
 import os
 import pandas as pd
 
-input_dir  = r".\datasets\rawdata"
-output_dir = r".\datasets\filtered"
+# Input and output directories
+input_dir = r"D:\A\miniproject3\datasets\rawdata"
+output_dir = r"D:\A\miniproject3\datasets\filtered"
 
-# List of Cities
+# List of valid cities
 valid_cities = {
     "BENGALURU", "DHARWAD", "MANGALORE", "MYSORE",
     "T.PURAM", "ERNAKULAM", "KOZHIKODE", "THRISSUR",
@@ -13,26 +14,21 @@ valid_cities = {
     "TIRUNELVELI", "THIRUCHIRAPALLI"
 }
 
+# Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
 # Process each CSV file
 for file in os.listdir(input_dir):
     if file.endswith(".csv"): 
-        file_path = os.path.join(input_dir, file)
-        df = pd.read_csv(file_path, encoding="utf-8")  
-
-        # Ensure required columns exist
-        if not {"Date", "Centre_Name", "Commodity_Name", "Price"}.issubset(df.columns):
-            print(f"Skipping {file} (missing required columns)")
-            continue
+        df = pd.read_csv(os.path.join(input_dir, file), encoding="utf-8")
 
         df["Centre_Name"] = df["Centre_Name"].str.upper()
-
-        df_filtered = df[df["Centre_Name"].isin(valid_cities)].dropna()
+        df["Price"] = pd.to_numeric(df["Price"], errors="coerce")
+        
+        df_filtered = df[df["Centre_Name"].isin(valid_cities)].dropna(subset=["Price"])
 
         if not df_filtered.empty:
-            output_path = os.path.join(output_dir, file)
-            df_filtered.to_csv(output_path, index=False, encoding="utf-8")
+            df_filtered.to_csv(os.path.join(output_dir, file), index=False, encoding="utf-8")
             print(f"Processed: {file}")
 
-print("Preprocessing Complete! Filtered CSV files are saved in:", output_dir)
+print("✅ Preprocessing Complete! Filtered CSV files are saved in:", output_dir)
