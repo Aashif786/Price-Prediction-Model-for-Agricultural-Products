@@ -1,11 +1,9 @@
 import os
 import pandas as pd
 
-# Input and output directories
-input_dir = r"D:\A\miniproject3\datasets\rawdata"
-output_dir = r"D:\A\miniproject3\datasets\filtered"
+input_dir = r".\datasets\rawdata"
+output_dir = r".\datasets\filtered"
 
-# List of valid cities
 valid_cities = {
     "BENGALURU", "DHARWAD", "MANGALORE", "MYSORE",
     "T.PURAM", "ERNAKULAM", "KOZHIKODE", "THRISSUR",
@@ -14,10 +12,8 @@ valid_cities = {
     "TIRUNELVELI", "THIRUCHIRAPALLI"
 }
 
-# Ensure output directory exists
 os.makedirs(output_dir, exist_ok=True)
 
-# Process each CSV file
 for file in os.listdir(input_dir):
     if file.endswith(".csv"): 
         df = pd.read_csv(os.path.join(input_dir, file), encoding="utf-8")
@@ -31,4 +27,4 @@ for file in os.listdir(input_dir):
             df_filtered.to_csv(os.path.join(output_dir, file), index=False, encoding="utf-8")
             print(f"Processed: {file}")
 
-print("✅ Preprocessing Complete! Filtered CSV files are saved in:", output_dir)
+print("Preprocessing Complete! :", output_dir)
