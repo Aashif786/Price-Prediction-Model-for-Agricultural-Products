@@ -51,7 +51,7 @@ export default function LoginPage() {
             <p>
               Don&apos;t have an account?{" "}
               <Link href="#" className="font-medium text-green-600 dark:text-green-400 hover:text-green-500">
-                Contact administrator
+                Sign up  
               </Link>
             </p>
           </div>

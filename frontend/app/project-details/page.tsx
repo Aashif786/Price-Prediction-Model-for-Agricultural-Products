@@ -144,14 +144,6 @@ export default function ProjectDetailsPage() {
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  <span className="font-semibold">LSTM (Long Short-Term Memory):</span> Deep learning model that
-                  captures long-term dependencies in time series data
-                </li>
-                <li>
-                  <span className="font-semibold">XGBoost:</span> Gradient boosting algorithm that handles complex
-                  relationships between features
-                </li>
-                <li>
                   <span className="font-semibold">ARIMA (AutoRegressive Integrated Moving Average):</span> Statistical
                   model for time series forecasting
                 </li>
