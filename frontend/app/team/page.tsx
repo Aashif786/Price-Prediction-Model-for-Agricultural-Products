@@ -24,7 +24,7 @@ export default function TeamPage() {
               </div>
             </div>
             <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-semibold">Aashif Anshaf</h3>
+              <h3 className="text-xl font-semibold">Aashif Shadin K N</h3>
               <div className="flex items-center justify-center gap-4 mt-4">
                 <Link href="mailto:aashifanshaf786@gmail.com" className="text-muted-foreground hover:text-foreground">
                   <Mail className="h-5 w-5" />
@@ -56,7 +56,7 @@ export default function TeamPage() {
               </div>
             </div>
             <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-semibold">Sharanya</h3>
+              <h3 className="text-xl font-semibold">Sharanya T</h3>
               <div className="flex items-center justify-center gap-4 mt-4">
                 <Link href="mailto:sha2005ranya@gmail.com" className="text-muted-foreground hover:text-foreground">
                   <Mail className="h-5 w-5" />
@@ -88,7 +88,7 @@ export default function TeamPage() {
               </div>
             </div>
             <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-semibold">Santhosh</h3>
+              <h3 className="text-xl font-semibold">Santhosh S</h3>
               <div className="flex items-center justify-center gap-4 mt-4">
                 <Link
                   href="mailto:santhoshsanthosh24133@gmail.com"
@@ -97,7 +97,7 @@ export default function TeamPage() {
                   <Mail className="h-5 w-5" />
                 </Link>
                 <Link
-                  href="https://github.com/santhosh"
+                  href="https://github.com/23-santhosh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground"

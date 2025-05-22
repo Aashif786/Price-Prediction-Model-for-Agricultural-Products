@@ -10,7 +10,7 @@ export default function LoginPage() {
       <div className="md:w-1/2 bg-green-50 dark:bg-green-950/30 flex items-center justify-center p-6">
         <div className="max-w-md">
           <div className="absolute top-4 right-4 md:hidden">
-            <ModeToggle />
+            <ModeToggle/>
           </div>
           <Image
             src="/placeholder.svg?height=400&width=400"
